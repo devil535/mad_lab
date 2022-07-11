@@ -1,0 +1,73 @@
+c
+/*  JAVA CODE  */
+
+/* YOU HAVE TO COPY AND PASTE ANY 5 PHOTO IN res > drawable folder name b1,b2,b3,b4,b5 */
+
+
+package com.example.wallpaperchanger;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
+import android.app.WallpaperManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.widget.Toast;
+import java.io.IOError;
+import java.io.IOException;
+import java.util.Random;
+public class MainActivity extends AppCompatActivity {
+    int[] images;
+    Handler handler;
+    Runnable runnable;
+    int delay = 30000;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        handler = new Handler();
+    }
+    @Override
+    protected void onResume() {
+        handler.postDelayed(runnable = new Runnable() {
+            public void run() {
+                handler.postDelayed(runnable, delay);
+                SetWallPaper();
+                //Toast.makeText(MainActivity.this, "This method is run every 3 seconds",
+                // Toast.LENGTH_SHORT).show();
+            }
+        }, delay);
+        super.onResume();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        handler.removeCallbacks(runnable); //stop handler when activity not visible
+        super.onPause();
+    }
+    public void ChangeImage(View view) {
+        SetWallPaper();
+    }
+    @SuppressLint("MissingPermission")
+    private void SetWallPaper()
+    {
+        images = new int[] {R.drawable.b1,R.drawable.b5,R.drawable.b3,R.drawable.b4};
+        int arylength = images.length;
+        Random random = new Random();
+        int rnum = random.nextInt(arylength);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),images[rnum]);
+        WallpaperManager manager =
+                WallpaperManager.getInstance(getApplicationContext());
+        try {
+            manager.setBitmap(bitmap);
+            Toast.makeText(this,"Wall Paper changed",Toast.LENGTH_SHORT).show();
+        }
+        catch(IOException e)
+        {
+            Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show();
+        }
+    }
+}
