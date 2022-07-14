@@ -1,4 +1,7 @@
-<!--     Prog 6: Parsing XML and JSON      -->
+<!--     Prog 6: Parsing XML and JSON  having 4 file 2 java , 2 xml     -->
+
+right click on   app  >  new  > activity  >empty activity
+
 
 <!--        for this we have to create one json file and one xml file -->
 
@@ -71,7 +74,6 @@ b. city.json file:
 <!--     main.xml  XML file      -->
 
 
-
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -80,43 +82,132 @@ b. city.json file:
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/xml"
-        android:layout_width="130dp"
-        android:layout_height="55dp"
-        android:onClick="parsexml"
-        android:text="parse_xml"
+    <TextView
+        android:id="@+id/main_header_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PARSING XML AND JSON DATA"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.431"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.102" />
+        app:layout_constraintVertical_bias="0.08" />
 
     <Button
-        android:id="@+id/js"
-        android:layout_width="130dp"
-        android:layout_height="55dp"
-        android:onClick="parsejson"
-        android:text="parse_json"
+        android:id="@+id/main_parse_xml_btn_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parse XML Data"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.304" />
+        app:layout_constraintTop_toBottomOf="@+id/main_header_id"
+        app:layout_constraintVertical_bias="0.253" />
+
+    <Button
+        android:id="@+id/main_parse_json_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parse JSON Data"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_parse_xml_btn_id"
+        app:layout_constraintVertical_bias="0.237" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+<!--     viewdataactivity.xml  XML file      -->
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewDataActivity">
 
     <TextView
-        android:id="@+id/out"
-        android:layout_width="348dp"
-        android:layout_height="334dp"
+        android:id="@+id/view_header_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PARSING XML AND JSON DATA"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.801" />
+        app:layout_constraintVertical_bias="0.04" />
+
+    <TextView
+        android:id="@+id/view_xml_label_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XML Data"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/view_json_label_id"
+        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_header_id"
+        app:layout_constraintVertical_bias="0.076" />
+
+    <TextView
+        android:id="@+id/view_json_label_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="96dp"
+        android:text="JSON Data"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_header_id"
+        app:layout_constraintVertical_bias="0.076" />
+
+    <TextView
+        android:id="@+id/view_xml_content_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="xml content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/view_xml_label_id"
+        app:layout_constraintTop_toBottomOf="@+id/view_xml_label_id"
+        app:layout_constraintVertical_bias="0.109" />
+
+    <TextView
+        android:id="@+id/view_json_content_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="json content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/view_json_label_id"
+        app:layout_constraintTop_toBottomOf="@+id/view_json_label_id"
+        app:layout_constraintVertical_bias="0.107" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -132,96 +223,37 @@ package com.example.counterprogram;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.Button;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
+    Button parseXMLBtn, parseJSONBtn;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-public class MainActivity extends AppCompatActivity {
-    TextView display;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        display=findViewById(R.id.out);
+        parseXMLBtn = (Button) findViewById(R.id.main_parse_xml_btn_id);
+        parseJSONBtn = (Button) findViewById(R.id.main_parse_json_id);
+        parseXMLBtn.setOnClickListener(this);
+        parseJSONBtn.setOnClickListener(this);
     }
-    public void parsexml(View v){
-        try {
-            InputStream is=getAssets().open("city.xml");
-            DocumentBuilderFactory documentBuilderFactory =
-                    DocumentBuilderFactory.newInstance();
-            DocumentBuilder
-                    documentBuilder=documentBuilderFactory.newDocumentBuilder();
-            Document document=documentBuilder.parse(is);
-            StringBuilder stringBuilder=new StringBuilder();
-            stringBuilder.append("XML DATA");
-            stringBuilder.append("\n ------------");
-            NodeList nodeList=document.getElementsByTagName("place");
-            for(int i=0; i<nodeList.getLength();i++){
-                Node node = nodeList.item(i);
-                if(node.getNodeType()==Node.ELEMENT_NODE){
-                    Element element = (Element)node;
-                    stringBuilder.append("\n Name:").append(getValue("name",element));
-                    stringBuilder.append("\n Latitude:").append(getValue("lat",element));
-                    stringBuilder.append("\n Longitude:").append(getValue("long",element));
-                    stringBuilder.append("\n Temperature:").append(getValue("temperature",element));
 
-                    stringBuilder.append("\n humidity").append(getValue("humidity",element));
-                    stringBuilder.append("\n ---------");
-                }
-            }
-            display.setText(stringBuilder.toString());
+    @Override
+    public void onClick(View view) {
+        if(view.equals(parseXMLBtn)) {
+            // Intent will act like a broadcaster
+            Intent intent = new Intent(this,ViewDataActivity.class);
+            intent.putExtra("dataType", "xml");
+            startActivity(intent);
+        } else if(view.equals(parseJSONBtn)) {
+            Intent intent = new Intent(this,ViewDataActivity.class);
+            intent.putExtra("dataType", "json");
+            startActivity(intent);
         }
-        catch (Exception e){
-            e.printStackTrace();
-            Toast.makeText(MainActivity.this,"Error in reading XML FILE",Toast.LENGTH_LONG).show();
-        }
-    }
-    public void parsejson(View V){
-        String json;
-        StringBuilder stringBuilder = new StringBuilder();
-        try {
-            InputStream is = getAssets().open("city.json");
-            int size=is.available();
-            byte[] buffer=new byte[size];
-            is.read(buffer);
-            json = new String(buffer, StandardCharsets.UTF_8);
-            JSONArray jsonArray = new JSONArray(json);
-            stringBuilder.append("JSON DATA");
-            stringBuilder.append("\n -------");
-            for(int i=0;i<jsonArray.length();i++){
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                stringBuilder.append("\n Name:").append(jsonObject.getString("name"));
-                stringBuilder.append("\n Latidue:").append(jsonObject.getString("lat"));
-                stringBuilder.append("\n Longitude:").append(jsonObject.getString("long"));
-                stringBuilder.append("\n Temperature:").append(jsonObject.getString("temperature"));
-                stringBuilder.append("\n Humidity:").append(jsonObject.getString("humidity"));
-                stringBuilder.append("\n ---------");
-            }
-            display.setText(stringBuilder.toString());
-            is.close();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-            Toast.makeText(MainActivity.this,"Error in reading JSON file",Toast.LENGTH_LONG).show();
-        }
-    }
-    private String getValue(String tag,Element element){
-        return
-                element.getElementsByTagName(tag).item(0).getChildNodes().item(0).getNodeValue();
     }
 }
 
@@ -232,5 +264,111 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+/*    viewdataactivity.java  javafile     */
+
+
+package com.example.counterprogram;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.JsonReader;
+import android.widget.TextView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+public class ViewDataActivity extends AppCompatActivity {
+
+    TextView xmlContentTextView, jsonContentTextView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_view_data);
+        xmlContentTextView = (TextView) findViewById(R.id.view_xml_content_id);
+        jsonContentTextView = (TextView) findViewById(R.id.view_json_content_id);
+        Intent intent = getIntent();
+        String dataType = intent.getStringExtra("dataType");
+        if(dataType.equals("xml")) {
+            xmlContentTextView.setText("Test xml parsed content");
+            parseXML();
+        } else if(dataType.equals("json")) {
+            jsonContentTextView.setText("Test json parsed content");
+            parseJSON();
+        }
+    }
+
+    public void parseXML() {
+        InputStream inputStream = null;
+        try {
+            inputStream = getAssets().open("city.xml");
+            JsonReader reader = new JsonReader(new InputStreamReader(inputStream));
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.parse(inputStream);
+            doc.normalize();
+            NodeList nodeList = doc.getElementsByTagName("weather");
+            for(int i=0; i<nodeList.getLength();i++) {
+                Node node = nodeList.item(i);
+                if(node.getNodeType() == Node.ELEMENT_NODE) {
+                    Element element = (Element) node;
+                    xmlContentTextView.setText("City_Name: "+element.getElementsByTagName("name").item(0).getTextContent() + "\n");
+                    xmlContentTextView.append("Latitude: "+element.getElementsByTagName("lat").item(0).getTextContent() + "\n");
+                    xmlContentTextView.append("Longitude: "+element.getElementsByTagName("long").item(0).getTextContent() + "\n");
+                    xmlContentTextView.append("Temperature: "+element.getElementsByTagName("temperature").item(0).getTextContent() + "\n");
+                    xmlContentTextView.append("Humidity: "+element.getElementsByTagName("humidity").item(0).getTextContent());
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } finally {
+            if(inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void parseJSON() {
+        try (InputStream inputStream = getAssets().open("city.json")) {
+            byte[] data = new byte[inputStream.available()];
+            inputStream.read(data);
+            String jsonString = new String(data);
+            JSONObject jsonObject = new JSONObject(jsonString);
+            JSONObject weather = jsonObject.getJSONObject("weather");
+            jsonContentTextView.setText("City_Name: "+weather.getString("name") + "\n");
+            jsonContentTextView.append("Latitude: "+weather.getString("lat") + "\n");
+            jsonContentTextView.append("Longitude: "+weather.getString("long") + "\n");
+            jsonContentTextView.append("Temperature: "+weather.getString("temperature") + "\n");
+            jsonContentTextView.append("Humidity: "+weather.getString("humidity") + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
 
